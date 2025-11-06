@@ -76,7 +76,7 @@ export default function ContactsPage() {
               addressLocality: "Минск",
               addressCountry: "BY",
             },
-            areaServed: ["Минск", "Москва", "BY", "RU"],
+            areaServed: ["Минск", "BY"],
           }),
         }}
       />

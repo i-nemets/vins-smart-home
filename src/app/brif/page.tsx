@@ -116,7 +116,7 @@ export default function BriefPage() {
                     {...inputProps}
                     id="phone"
                     type="tel"
-                    placeholder="+7 (900) 000-00-00"
+                    placeholder="+7 (900)-00-00"
                   />
                 )}
               </InputMask>

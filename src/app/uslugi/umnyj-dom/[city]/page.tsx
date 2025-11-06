@@ -15,7 +15,6 @@ export default function SmartHomeCityPage({ params }: Props) {
   const city = decodeURIComponent(params.city);
   const cityLower = params.city.toLowerCase();
   const isMinsk = cityLower === "minsk";
-  const isMoskva = cityLower === "moskva";
 
   return (
     <main className="max-w-6xl mx-auto px-6 py-16">
@@ -26,11 +25,6 @@ export default function SmartHomeCityPage({ params }: Props) {
       {isMinsk && (
         <p className="mt-3 text-sm text-muted-foreground">
           Работаем в Минске с 2017 года. Реализовали более 20 проектов (квартиры, коттеджи, офисы). Выезд на аудит — бесплатно.
-        </p>
-      )}
-      {isMoskva && (
-        <p className="mt-3 text-sm text-muted-foreground">
-          Работаем в Москве удалённо и с выездными визитами. Готовы обсудить проекты любой сложности, от квартир до загородных домов.
         </p>
       )}
       <ul className="mt-6 grid gap-2 list-disc pl-5 text-sm text-muted-foreground">
@@ -46,7 +40,6 @@ export default function SmartHomeCityPage({ params }: Props) {
           <p><strong>Бренды:</strong> подбираем под бюджет и сценарии (KNX/DMX/Zigbee).</p>
           <p><strong>Гарантия:</strong> на оборудование и работы, сервисные визиты.</p>
           {isMinsk && <p><strong>Бесплатный аудит:</strong> в пределах Минска и области.</p>}
-          {isMoskva && <p><strong>Удалённый старт:</strong> проект и настройка могут быть выполнены удалённо, финальный пуск — выездной визит.</p>}
         </div>
       </section>
       <script

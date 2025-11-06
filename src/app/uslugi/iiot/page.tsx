@@ -25,20 +25,35 @@ export const metadata: Metadata = {
 export default function IIotPage() {
   return (
     <main className="max-w-6xl mx-auto px-6 py-16">
-      <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">
+      <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
         IIoT: подключение оборудования и аналитика
       </h1>
-      <p className="mt-4 text-black/70 dark:text-white/70">
-        Подключаем станки и линии, собираем и обогащаем данные, строим панели
-        мониторинга и рассчитываем OEE. Работаем с OPC UA/Modbus и интегрируемся
-        со SCADA/MES.
+      <p className="mt-6 text-xl text-white/80 leading-relaxed max-w-3xl">
+        Подключаем станки и производственные линии, собираем телеметрию, строим панели мониторинга и рассчитываем OEE. 
+        Интеграции со SCADA/MES/ERP и безопасность на уровне предприятия.
       </p>
-      <ul className="mt-6 grid gap-2 list-disc pl-5 text-sm text-muted-foreground">
-        <li>OPC UA/Modbus/TCP, ретрофит оборудования</li>
-        <li>Сбор телеметрии, хранение и очистка данных</li>
-        <li>OEE, дашборды, алерты и роли</li>
-        <li>Интеграции SCADA/MES/ERP и безопасность</li>
-      </ul>
+
+      <section className="mt-10">
+        <h2 className="text-2xl font-bold">Технологии подключения</h2>
+        <div className="mt-6 grid gap-6 sm:grid-cols-2">
+          <div className="p-5 rounded-xl border-2 border-green-500/20 bg-gradient-to-br from-green-500/5 to-transparent">
+            <h3 className="font-semibold text-green-400">Протоколы</h3>
+            <p className="mt-2 text-sm text-muted-foreground">OPC UA/DA, Modbus TCP/RTU, Ethernet/IP, Profinet, MTConnect</p>
+          </div>
+          <div className="p-5 rounded-xl border-2 border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-transparent">
+            <h3 className="font-semibold text-blue-400">Ретрофит</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Внешние датчики (вибрация/температура/ток), считыватели сигналов для legacy-оборудования</p>
+          </div>
+          <div className="p-5 rounded-xl border-2 border-purple-500/20 bg-gradient-to-br from-purple-500/5 to-transparent">
+            <h3 className="font-semibold text-purple-400">Хранение</h3>
+            <p className="mt-2 text-sm text-muted-foreground">TimescaleDB, InfluxDB, ClickHouse, ретеншн-политики, резервное копирование</p>
+          </div>
+          <div className="p-5 rounded-xl border-2 border-pink-500/20 bg-gradient-to-br from-pink-500/5 to-transparent">
+            <h3 className="font-semibold text-pink-400">Панели/OEE</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Grafana, custom UI, OEE-расчёт (доступность × производительность × качество), панели по ролям</p>
+          </div>
+        </div>
+      </section>
       <div className="mt-8 flex gap-3">
         <Button asChild>
           <a href="/brif">Запросить демонстрацию</a>
@@ -77,7 +92,7 @@ export default function IIotPage() {
               <CardDescription>1–2 станка</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-semibold">от 600 000 ₽</p>
+              <p className="text-2xl font-semibold">от 600 000 $</p>
               <ul className="mt-3 text-sm text-muted-foreground list-disc pl-5 space-y-1">
                 <li>Подключение/сбор данных</li>
                 <li>Базовые панели</li>
@@ -94,7 +109,7 @@ export default function IIotPage() {
               <CardDescription>5–10 станков</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-semibold">от 1,5 млн ₽</p>
+              <p className="text-2xl font-semibold">от 1,5 млн $</p>
               <ul className="mt-3 text-sm text-muted-foreground list-disc pl-5 space-y-1">
                 <li>Панели по ролям, OEE</li>
                 <li>Алерты и роли</li>
@@ -195,7 +210,7 @@ export default function IIotPage() {
               description: "Подключение 1–2 станков, базовые панели",
               offers: {
                 "@type": "Offer",
-                price: "600000",
+                price: "7000",
                 priceCurrency: "RUB",
               },
             },
@@ -206,7 +221,7 @@ export default function IIotPage() {
               description: "5–10 станков, OEE, панели по ролям",
               offers: {
                 "@type": "Offer",
-                price: "1500000",
+                price: "18000",
                 priceCurrency: "RUB",
               },
             },

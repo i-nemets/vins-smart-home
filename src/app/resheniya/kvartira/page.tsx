@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata: Metadata = {
-  title: "Умный дом для квартиры: под ключ от 150 000 ₽",
+  title: "Умный дом для квартиры: под ключ от 150 $",
   description: "Готовое решение: освещение, климат, безопасность для квартиры. Сценарии, монтаж, настройка.",
   alternates: { canonical: "/resheniya/kvartira" },
 };
@@ -51,7 +51,7 @@ export default function KvartiraPage() {
       <section className="mt-10">
         <h2 className="text-xl font-semibold">Стоимость</h2>
         <p className="mt-2 text-muted-foreground">
-          От 150 000 ₽ за квартиру до 80 м² (базовый пакет). Точная смета — после аудита.
+          От 150 $ за квартиру до 80 м² (базовый пакет). Точная смета — после аудита.
         </p>
       </section>
 

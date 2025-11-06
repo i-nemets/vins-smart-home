@@ -25,20 +25,62 @@ export const metadata: Metadata = {
 export default function SmartHomePage() {
   return (
     <main className="max-w-6xl mx-auto px-6 py-16">
-      <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">
+      <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
         Умный дом под ключ
       </h1>
-      <p className="mt-4 text-black/70 dark:text-white/70">
-        Разрабатываем сценарии освещения, климат-контроль, безопасность и
-        мультимедиа. Работы «под ключ»: проект, поставка, монтаж, настройка и
-        сервис.
+      <p className="mt-6 text-xl text-white/80 leading-relaxed max-w-3xl">
+        Проектируем и внедряем комплексные системы автоматизации для квартир,
+        коттеджей и офисов. Освещение, климат, безопасность, мультимедиа — с
+        гарантией и сервисом.
       </p>
-      <ul className="mt-6 grid gap-2 list-disc pl-5 text-sm text-muted-foreground">
-        <li>Проект и ТЗ на основе сценариев</li>
-        <li>Сети, стойка, ИБП и резервирование</li>
-        <li>Интеграции: KNX, Zigbee/Z‑Wave, HomeKit и др.</li>
-        <li>Пусконаладка и пост-гарантийный сервис</li>
-      </ul>
+
+      <section className="mt-10">
+        <h2 className="text-2xl font-bold">Подсистемы умного дома</h2>
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="p-5 rounded-xl border-2 border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-transparent hover:border-blue-400/50 transition-all">
+            <h3 className="font-semibold text-blue-400">Освещение</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Сценарии, диммирование, датчики движения/присутствия, цветные
+              лампы (RGB), автоматизация по расписанию и геозонам.
+            </p>
+          </div>
+          <div className="p-5 rounded-xl border-2 border-purple-500/20 bg-gradient-to-br from-purple-500/5 to-transparent hover:border-purple-400/50 transition-all">
+            <h3 className="font-semibold text-purple-400">Климат</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Зональный контроль температуры, влажности, вентиляция, интеграции
+              с котлами/кондиционерами, датчики CO₂.
+            </p>
+          </div>
+          <div className="p-5 rounded-xl border-2 border-green-500/20 bg-gradient-to-br from-green-500/5 to-transparent hover:border-green-400/50 transition-all">
+            <h3 className="font-semibold text-green-400">Безопасность</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Видеонаблюдение, СКУД, датчики протечки/дыма/открытия, оповещения
+              на телефон, интеграции с охраной.
+            </p>
+          </div>
+          <div className="p-5 rounded-xl border-2 border-orange-500/20 bg-gradient-to-br from-orange-500/5 to-transparent hover:border-orange-400/50 transition-all">
+            <h3 className="font-semibold text-orange-400">Мультимедиа</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Мультирум-аудио, домашний кинотеатр, управление AV-матрицами,
+              интеграция с ТВ/проекторами.
+            </p>
+          </div>
+          <div className="p-5 rounded-xl border-2 border-pink-500/20 bg-gradient-to-br from-pink-500/5 to-transparent hover:border-pink-400/50 transition-all">
+            <h3 className="font-semibold text-pink-400">Шторы/жалюзи</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Автоматические шторы/жалюзи, сценарии утро/вечер, интеграция с
+              датчиками освещённости.
+            </p>
+          </div>
+          <div className="p-5 rounded-xl border-2 border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-transparent hover:border-cyan-400/50 transition-all">
+            <h3 className="font-semibold text-cyan-400">Управление</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Приложение (iOS/Android), голосовые ассистенты
+              (Siri/Alexa/Google), сенсорные панели, кнопки.
+            </p>
+          </div>
+        </div>
+      </section>
       <div className="mt-8 flex gap-3">
         <Button asChild>
           <a href="/brif">Получить предложение</a>
@@ -111,7 +153,7 @@ export default function SmartHomePage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-semibold">от 2 500 ₽/м²</p>
+              <p className="text-2xl font-semibold">от $30/м²</p>
               <ul className="mt-3 text-sm text-muted-foreground list-disc pl-5 space-y-1">
                 <li>Сценарии света</li>
                 <li>Датчики движения/протечки</li>
@@ -130,7 +172,7 @@ export default function SmartHomePage() {
               <CardDescription>Свет + климат + безопасность</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-semibold">от 4 000 ₽/м²</p>
+              <p className="text-2xl font-semibold">от $50/м²</p>
               <ul className="mt-3 text-sm text-muted-foreground list-disc pl-5 space-y-1">
                 <li>Климат по зонам</li>
                 <li>Видеонаблюдение/СКУД</li>

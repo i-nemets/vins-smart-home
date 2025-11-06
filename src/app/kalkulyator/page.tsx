@@ -17,14 +17,14 @@ export default function CalculatorPage() {
 
   const estimate = useMemo(() => {
     if (service === "smart-home") {
-      const basePerM2 = 3000; // ₽ за м² (MVP)
+      const basePerM2 = 35; // $ за м² (MVP)
       const total = area * basePerM2;
-      return Math.max(total, 150000);
+      return Math.max(total, 1800);
     }
     // IIoT
-    const perNode = 180000; // ₽ за узел (MVP)
-    const slaCost = sla ? 120000 : 0; // ежегодно, показываем в сумме первый год
-    return Math.max(devices * perNode + slaCost, 300000);
+    const perNode = 2100; // $ за узел (MVP)
+    const slaCost = sla ? 1400 : 0; // ежегодно, показываем в сумме первый год
+    return Math.max(devices * perNode + slaCost, 3500);
   }, [service, area, devices, sla]);
 
   return (
@@ -59,7 +59,7 @@ export default function CalculatorPage() {
               value={area}
               onChange={(e) => setArea(Number(e.target.value) || 0)}
             />
-            <p className="text-xs text-muted-foreground">MVP: ориентир — от 3000 ₽/м², минимум 150 000 ₽.</p>
+            <p className="text-xs text-muted-foreground">MVP: ориентир — от $35/м², минимум 150 000 $.</p>
           </div>
         ) : (
           <>
@@ -73,7 +73,7 @@ export default function CalculatorPage() {
                 value={devices}
                 onChange={(e) => setDevices(Number(e.target.value) || 0)}
               />
-              <p className="text-xs text-muted-foreground">MVP: ~180 000 ₽/узел. Минимум 300 000 ₽.</p>
+              <p className="text-xs text-muted-foreground">MVP: ~180 000 $/узел. Минимум 300 000 $.</p>
             </div>
             <label className="flex items-center gap-2 text-sm">
               <input type="checkbox" checked={sla} onChange={(e) => setSla(e.target.checked)} />
@@ -84,7 +84,7 @@ export default function CalculatorPage() {
 
         <div className="mt-2 rounded-md border p-4">
           <p className="text-sm text-muted-foreground">Ориентировочная стоимость</p>
-          <p className="mt-1 text-2xl font-semibold">≈ {estimate.toLocaleString("ru-RU")} ₽</p>
+          <p className="mt-1 text-2xl font-semibold">≈ {estimate.toLocaleString("ru-RU")} $</p>
         </div>
 
         <div className="flex gap-3">

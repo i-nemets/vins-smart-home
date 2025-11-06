@@ -25,17 +25,33 @@ export const metadata: Metadata = {
 export default function IotPage() {
   return (
     <main className="max-w-6xl mx-auto px-6 py-16">
-      <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">IoT решения под ключ</h1>
-      <p className="mt-4 text-black/70 dark:text-white/70">
-        Проектируем и внедряем IoT: датчики, шлюзы, телеметрию и облачную инфраструктуру. Интеграции с существующими
-        системами и API.
+      <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">IoT решения под ключ</h1>
+      <p className="mt-6 text-xl text-white/80 leading-relaxed max-w-3xl">
+        Проектируем и внедряем IoT: датчики, шлюзы, телеметрию и облачную инфраструктуру. 
+        От прототипа до промышленной эксплуатации с безопасностью и SLA.
       </p>
-      <ul className="mt-6 grid gap-2 list-disc pl-5 text-sm text-muted-foreground">
-        <li>Быстрое прототипирование и PoC</li>
-        <li>MQTT/HTTP, LoRaWAN/NB‑IoT, шлюзы и облако</li>
-        <li>Дашборды и алерты, роли и доступы</li>
-        <li>Документация и сопровождение</li>
-      </ul>
+
+      <section className="mt-10">
+        <h2 className="text-2xl font-bold">Технологический стек</h2>
+        <div className="mt-6 grid gap-6 sm:grid-cols-2">
+          <div className="p-5 rounded-xl border-2 border-purple-500/20 bg-gradient-to-br from-purple-500/5 to-transparent">
+            <h3 className="font-semibold text-purple-400">Протоколы</h3>
+            <p className="mt-2 text-sm text-muted-foreground">MQTT, HTTP/REST, CoAP, LoRaWAN, NB‑IoT, Sigfox</p>
+          </div>
+          <div className="p-5 rounded-xl border-2 border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-transparent">
+            <h3 className="font-semibold text-blue-400">Датчики</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Температура, влажность, движение, протечка, GPS, вибрация, CO₂, освещённость</p>
+          </div>
+          <div className="p-5 rounded-xl border-2 border-green-500/20 bg-gradient-to-br from-green-500/5 to-transparent">
+            <h3 className="font-semibold text-green-400">Хранение</h3>
+            <p className="mt-2 text-sm text-muted-foreground">InfluxDB, TimescaleDB, PostgreSQL, MongoDB, облачные решения (AWS IoT/Azure)</p>
+          </div>
+          <div className="p-5 rounded-xl border-2 border-pink-500/20 bg-gradient-to-br from-pink-500/5 to-transparent">
+            <h3 className="font-semibold text-pink-400">Визуализация</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Grafana, custom дашборды (React/Vue), мобильные приложения, Telegram/email алерты</p>
+          </div>
+        </div>
+      </section>
       <div className="mt-8 flex gap-3">
         <Button asChild>
           <a href="/brif">Обсудить проект</a>
@@ -91,7 +107,7 @@ export default function IotPage() {
               <CardDescription>Объект/цех</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-semibold">от 300 000 ₽</p>
+              <p className="text-2xl font-semibold">от 300 000 $</p>
               <ul className="mt-3 text-sm text-muted-foreground list-disc pl-5 space-y-1">
                 <li>Набор датчиков/шлюзы</li>
                 <li>Сбор/хранение данных</li>
