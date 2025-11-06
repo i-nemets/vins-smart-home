@@ -43,6 +43,7 @@ export default function Home() {
           src="https://images.unsplash.com/photo-1519558260268-cde7e03a0152?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2340"
           alt="IoT illustration"
           fill
+          sizes="100vw"
           className="object-cover object-center"
           priority
         />

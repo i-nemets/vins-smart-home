@@ -2,6 +2,8 @@ export default function Head() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
   const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  const GOOGLE_SITE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+  const META_DOMAIN_VERIFICATION = process.env.NEXT_PUBLIC_META_SITE_VERIFICATION;
   const organization = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -22,6 +24,8 @@ export default function Head() {
 
   return (
     <>
+      <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+      <link rel="dns-prefetch" href="https://images.unsplash.com" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
@@ -30,6 +34,12 @@ export default function Head() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }}
       />
+      {GOOGLE_SITE_VERIFICATION ? (
+        <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
+      ) : null}
+      {META_DOMAIN_VERIFICATION ? (
+        <meta name="facebook-domain-verification" content={META_DOMAIN_VERIFICATION} />
+      ) : null}
       {GA_ID ? (
         <>
           <script
