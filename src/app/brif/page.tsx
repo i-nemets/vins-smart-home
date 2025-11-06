@@ -1,6 +1,5 @@
 "use client";
-import type { Metadata } from "next";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { leadSchema, type LeadInput } from "@/lib/validators";
@@ -15,13 +14,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useSearchParams } from "next/navigation";
-
-export const metadata: Metadata = {
-  title: "Бриф на проект — получить предложение",
-  description:
-    "Заполните бриф и получите предложение по умному дому, IoT или IIoT. Быстрая оценка и сроки.",
-};
 
 export default function BriefPage() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -36,23 +28,25 @@ export default function BriefPage() {
     },
   });
 
-  const searchParams = useSearchParams();
   useEffect(() => {
-    const utmKeys = [
-      "utm_source",
-      "utm_medium",
-      "utm_campaign",
-      "utm_term",
-      "utm_content",
-    ] as const;
-    utmKeys.forEach((k) => {
-      const v = searchParams.get(k);
-      if (v) form.setValue(k, v);
-    });
-    if (typeof document !== "undefined" && document.referrer) {
-      form.setValue("referrer", document.referrer);
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const utmKeys = [
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "utm_term",
+        "utm_content",
+      ] as const;
+      utmKeys.forEach((k) => {
+        const v = params.get(k);
+        if (v) form.setValue(k, v);
+      });
+      if (document.referrer) {
+        form.setValue("referrer", document.referrer);
+      }
     }
-  }, [searchParams, form]);
+  }, [form]);
 
   async function onSubmit(values: LeadInput) {
     setStatus("idle");
@@ -65,7 +59,7 @@ export default function BriefPage() {
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
       form.reset();
-    } catch (e) {
+    } catch {
       setStatus("error");
     }
   }
@@ -79,87 +73,119 @@ export default function BriefPage() {
   } = form;
 
   return (
-    <main className="max-w-2xl mx-auto px-6 py-16">
-      <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">Бриф</h1>
-      <p className="mt-4 text-black/70 dark:text-white/70">
-        Заполните форму — пришлём ориентировочное предложение и сроки.
-      </p>
+    <Suspense fallback={null}>
+      <main className="max-w-2xl mx-auto px-6 py-16">
+        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">
+          Бриф
+        </h1>
+        <p className="mt-4 text-black/70 dark:text-white/70">
+          Заполните форму — пришлём ориентировочное предложение и сроки.
+        </p>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-5">
-        <input type="hidden" {...register("utm_source")} />
-        <input type="hidden" {...register("utm_medium")} />
-        <input type="hidden" {...register("utm_campaign")} />
-        <input type="hidden" {...register("utm_term")} />
-        <input type="hidden" {...register("utm_content")} />
-        <input type="hidden" {...register("referrer")} />
-        <div className="grid gap-5 sm:grid-cols-2">
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-5">
+          <input type="hidden" {...register("utm_source")} />
+          <input type="hidden" {...register("utm_medium")} />
+          <input type="hidden" {...register("utm_campaign")} />
+          <input type="hidden" {...register("utm_term")} />
+          <input type="hidden" {...register("utm_content")} />
+          <input type="hidden" {...register("referrer")} />
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="name">Имя</Label>
+              <Input id="name" placeholder="Иван" {...register("name")} />
+              {errors.name && (
+                <p className="text-sm text-destructive">
+                  {errors.name.message}
+                </p>
+              )}
+            </div>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="phone">Телефон</Label>
+              <Input
+                id="phone"
+                placeholder="+7 900 000-00-00"
+                {...register("phone")}
+              />
+              {errors.phone && (
+                <p className="text-sm text-destructive">
+                  {errors.phone.message}
+                </p>
+              )}
+            </div>
+          </div>
+
           <div className="flex flex-col gap-2">
-            <Label htmlFor="name">Имя</Label>
-            <Input id="name" placeholder="Иван" {...register("name")} />
-            {errors.name && (
-              <p className="text-sm text-destructive">{errors.name.message}</p>
+            <Label htmlFor="email">Email (необязательно)</Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="you@example.com"
+              {...register("email")}
+            />
+            {errors.email && (
+              <p className="text-sm text-destructive">
+                {errors.email.message as string}
+              </p>
             )}
           </div>
+
           <div className="flex flex-col gap-2">
-            <Label htmlFor="phone">Телефон</Label>
-            <Input id="phone" placeholder="+7 900 000-00-00" {...register("phone")} />
-            {errors.phone && (
-              <p className="text-sm text-destructive">{errors.phone.message}</p>
+            <Label>Тип услуги</Label>
+            <Select
+              value={watch("service")}
+              onValueChange={(v) =>
+                setValue("service", v as LeadInput["service"])
+              }
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Выберите услугу" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="smart-home">Умный дом</SelectItem>
+                <SelectItem value="iot">IoT</SelectItem>
+                <SelectItem value="iiot">IIoT</SelectItem>
+                <SelectItem value="other">Другое</SelectItem>
+              </SelectContent>
+            </Select>
+            {errors.service && (
+              <p className="text-sm text-destructive">
+                {errors.service.message as string}
+              </p>
             )}
           </div>
-        </div>
 
-        <div className="flex flex-col gap-2">
-          <Label htmlFor="email">Email (необязательно)</Label>
-          <Input id="email" type="email" placeholder="you@example.com" {...register("email")} />
-          {errors.email && (
-            <p className="text-sm text-destructive">{errors.email.message as string}</p>
-          )}
-        </div>
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="message">Опишите задачу</Label>
+            <Textarea
+              id="message"
+              rows={6}
+              placeholder="Кратко о проекте..."
+              {...register("message")}
+            />
+            {errors.message && (
+              <p className="text-sm text-destructive">
+                {errors.message.message}
+              </p>
+            )}
+          </div>
 
-        <div className="flex flex-col gap-2">
-          <Label>Тип услуги</Label>
-          <Select
-            value={watch("service")}
-            onValueChange={(v) => setValue("service", v as LeadInput["service"])}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Выберите услугу" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="smart-home">Умный дом</SelectItem>
-              <SelectItem value="iot">IoT</SelectItem>
-              <SelectItem value="iiot">IIoT</SelectItem>
-              <SelectItem value="other">Другое</SelectItem>
-            </SelectContent>
-          </Select>
-          {errors.service && (
-            <p className="text-sm text-destructive">{errors.service.message as string}</p>
-          )}
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <Label htmlFor="message">Опишите задачу</Label>
-          <Textarea id="message" rows={6} placeholder="Кратко о проекте..." {...register("message")} />
-          {errors.message && (
-            <p className="text-sm text-destructive">{errors.message.message}</p>
-          )}
-        </div>
-
-        <div className="flex items-center gap-3">
-          <Button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Отправка..." : "Отправить бриф"}
-          </Button>
-          {status === "success" && (
-            <span className="text-sm text-green-600 dark:text-green-400">Отправлено. Свяжемся в ближайшее время.</span>
-          )}
-          {status === "error" && (
-            <span className="text-sm text-destructive">Ошибка отправки. Попробуйте ещё раз.</span>
-          )}
-        </div>
-      </form>
-    </main>
+          <div className="flex items-center gap-3">
+            <Button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Отправка..." : "Отправить бриф"}
+            </Button>
+            {status === "success" && (
+              <span className="text-sm text-green-600 dark:text-green-400">
+                Отправлено. Свяжемся в ближайшее время.
+              </span>
+            )}
+            {status === "error" && (
+              <span className="text-sm text-destructive">
+                Ошибка отправки. Попробуйте ещё раз.
+              </span>
+            )}
+          </div>
+        </form>
+      </main>
+    </Suspense>
   );
 }
-
-

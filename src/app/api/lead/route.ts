@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import { leadSchema } from "@/lib/validators";
+import { leadSchema, type LeadInput } from "@/lib/validators";
 import { sendLeadEmail } from "@/lib/mailer";
+import { sendLeadToCrm } from "@/lib/crm";
 
 export async function POST(req: Request) {
   try {
@@ -13,7 +14,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const lead = {
+    const lead: LeadInput = {
       ...parsed.data,
       referrer: parsed.data.referrer || req.headers.get("referer") || undefined,
     };
@@ -31,13 +32,12 @@ export async function POST(req: Request) {
       }
     }
 
+    // CRM (optional)
+    await sendLeadToCrm(lead);
+
     return NextResponse.json({ success: true });
-  } catch (e) {
-    return NextResponse.json(
-      { error: "Invalid request" },
-      { status: 400 }
-    );
+  } catch (_e: unknown) {
+    console.error("LEAD_ERROR", _e);
+    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
 }
-
-

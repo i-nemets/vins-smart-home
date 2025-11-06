@@ -8,7 +8,7 @@ export const leadSchema = z.object({
     .email("Укажите корректный email")
     .optional()
     .or(z.literal("")),
-  service: z.enum(["smart-home", "iot", "iiot", "other"]).default("smart-home"),
+  service: z.enum(["smart-home", "iot", "iiot", "other"]),
   message: z.string().min(10, "Опишите задачу (от 10 символов)").max(2000),
   source: z.string().optional(),
   utm_source: z.string().optional(),

@@ -11,10 +11,13 @@ export const metadata: Metadata = {
 export default function IIotPage() {
   return (
     <main className="max-w-6xl mx-auto px-6 py-16">
-      <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">IIoT: подключение оборудования и аналитика</h1>
+      <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">
+        IIoT: подключение оборудования и аналитика
+      </h1>
       <p className="mt-4 text-black/70 dark:text-white/70">
-        Подключаем станки и линии, собираем и обогащаем данные, строим панели мониторинга и рассчитываем OEE. Работаем
-        с OPC UA/Modbus и интегрируемся со SCADA/MES.
+        Подключаем станки и линии, собираем и обогащаем данные, строим панели
+        мониторинга и рассчитываем OEE. Работаем с OPC UA/Modbus и интегрируемся
+        со SCADA/MES.
       </p>
       <ul className="mt-6 grid gap-2 list-disc pl-5 text-sm text-muted-foreground">
         <li>OPC UA/Modbus/TCP, ретрофит оборудования</li>
@@ -30,14 +33,6 @@ export default function IIotPage() {
           <a href="/kejsy">Смотреть кейсы</a>
         </Button>
       </div>
-    </main>
-  );
-}
-
-// JSON-LD scripts
-export function JsonLd() {
-  return (
-    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -57,14 +52,22 @@ export function JsonLd() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Услуги", item: "/uslugi" },
-              { "@type": "ListItem", position: 2, name: "IIoT", item: "/uslugi/iiot" },
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Услуги",
+                item: "/uslugi",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "IIoT",
+                item: "/uslugi/iiot",
+              },
             ],
           }),
         }}
       />
-    </>
+    </main>
   );
 }
-
-
