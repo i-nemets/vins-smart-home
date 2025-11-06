@@ -13,10 +13,26 @@ export function generateMetadata({ params }: Props): Metadata {
 
 export default function SmartHomeCityPage({ params }: Props) {
   const city = decodeURIComponent(params.city);
+  const cityLower = params.city.toLowerCase();
+  const isMinsk = cityLower === "minsk";
+  const isMoskva = cityLower === "moskva";
+
   return (
     <main className="max-w-6xl mx-auto px-6 py-16">
       <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">Умный дом в {city}</h1>
-      <p className="mt-4 text-black/70 dark:text-white/70">Проектирование и монтаж умного дома в {city}. Освещение, климат, безопасность и мультимедиа — с гарантией и сервисом.</p>
+      <p className="mt-4 text-black/70 dark:text-white/70">
+        Проектирование и монтаж умного дома в {city}. Освещение, климат, безопасность и мультимедиа — с гарантией и сервисом.
+      </p>
+      {isMinsk && (
+        <p className="mt-3 text-sm text-muted-foreground">
+          Работаем в Минске с 2017 года. Реализовали более 20 проектов (квартиры, коттеджи, офисы). Выезд на аудит — бесплатно.
+        </p>
+      )}
+      {isMoskva && (
+        <p className="mt-3 text-sm text-muted-foreground">
+          Работаем в Москве удалённо и с выездными визитами. Готовы обсудить проекты любой сложности, от квартир до загородных домов.
+        </p>
+      )}
       <ul className="mt-6 grid gap-2 list-disc pl-5 text-sm text-muted-foreground">
         <li>Аудит объекта и сценарии под ваш образ жизни</li>
         <li>Сети, стойка, ИБП, резервирование критичных узлов</li>
@@ -29,6 +45,8 @@ export default function SmartHomeCityPage({ params }: Props) {
           <p><strong>Сроки:</strong> от 2 до 6 недель в зависимости от объёма и готовности объекта.</p>
           <p><strong>Бренды:</strong> подбираем под бюджет и сценарии (KNX/DMX/Zigbee).</p>
           <p><strong>Гарантия:</strong> на оборудование и работы, сервисные визиты.</p>
+          {isMinsk && <p><strong>Бесплатный аудит:</strong> в пределах Минска и области.</p>}
+          {isMoskva && <p><strong>Удалённый старт:</strong> проект и настройка могут быть выполнены удалённо, финальный пуск — выездной визит.</p>}
         </div>
       </section>
       <script

@@ -46,6 +46,16 @@ export default function IotPage() {
       </div>
 
       <section className="mt-14">
+        <h2 className="text-xl font-semibold">Примеры применения</h2>
+        <ul className="mt-4 grid gap-2 list-disc pl-5 text-sm text-muted-foreground">
+          <li>Мониторинг склада: температура/влажность, оповещения при отклонениях.</li>
+          <li>Умное здание: счётчики, климат, занятость помещений.</li>
+          <li>Сельское хозяйство: датчики почвы, метео, полив.</li>
+          <li>Логистика: GPS-трекеры, датчики ударов/вибрации.</li>
+        </ul>
+      </section>
+
+      <section className="mt-14">
         <h2 className="text-xl font-semibold">Процесс внедрения</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Card><CardHeader><CardTitle>1. PoC</CardTitle><CardDescription>Гипотеза и стенд</CardDescription></CardHeader></Card>

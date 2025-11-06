@@ -49,6 +49,16 @@ export default function IIotPage() {
       </div>
 
       <section className="mt-14">
+        <h2 className="text-xl font-semibold">Примеры применения</h2>
+        <ul className="mt-4 grid gap-2 list-disc pl-5 text-sm text-muted-foreground">
+          <li>Мониторинг станков ЧПУ: OEE, температура/вибрация, панели по ролям.</li>
+          <li>Конвейерные линии: скорость, счётчики, интеграции с MES/ERP.</li>
+          <li>Энергопотребление: учёт по цехам, оптимизация режимов.</li>
+          <li>Предиктив: датчики вибрации/температуры, ML-модели для предсказания поломок.</li>
+        </ul>
+      </section>
+
+      <section className="mt-14">
         <h2 className="text-xl font-semibold">Процесс</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Card><CardHeader><CardTitle>1. Аудит</CardTitle><CardDescription>Оборудование/протоколы</CardDescription></CardHeader></Card>

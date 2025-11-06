@@ -49,6 +49,28 @@ export default function SmartHomePage() {
       </div>
 
       <section className="mt-14">
+        <h2 className="text-xl font-semibold">Примеры сценариев</h2>
+        <ul className="mt-4 grid gap-2 list-disc pl-5 text-sm text-muted-foreground">
+          <li>
+            Режим &ldquo;Уход&rdquo;: выключить все светильники, закрыть шторы,
+            включить охрану.
+          </li>
+          <li>
+            Утренний режим: мягкое включение света и климата по расписанию.
+          </li>
+          <li>Ночник: автовключение приглушённого света при движении ночью.</li>
+          <li>
+            Сценарий &ldquo;Кино&rdquo;: выключить свет, опустить шторы,
+            включить проектор.
+          </li>
+          <li>
+            Имитация присутствия в отпуске (свет, жалюзи по случайному
+            расписанию).
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-14">
         <h2 className="text-xl font-semibold">Как мы работаем</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Card>
