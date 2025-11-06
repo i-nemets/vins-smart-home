@@ -174,6 +174,35 @@ export default function IIotPage() {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: "IIoT — Пилот",
+              description: "Подключение 1–2 станков, базовые панели",
+              offers: {
+                "@type": "Offer",
+                price: "600000",
+                priceCurrency: "RUB",
+              },
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: "IIoT — Цех",
+              description: "5–10 станков, OEE, панели по ролям",
+              offers: {
+                "@type": "Offer",
+                price: "1500000",
+                priceCurrency: "RUB",
+              },
+            },
+          ]),
+        }}
+      />
     </main>
   );
 }

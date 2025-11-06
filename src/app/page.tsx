@@ -19,7 +19,7 @@ import { ShieldCheck, Workflow, PlugZap } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="px-6 py-16 sm:py-24 md:py-28 lg:py-32 max-w-6xl mx-auto">
+    <main id="main-content" className="px-6 py-16 sm:py-24 md:py-28 lg:py-32 max-w-6xl mx-auto">
       <div className="max-w-3xl">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
           Умный дом, IoT и IIoT под ключ
@@ -38,14 +38,16 @@ export default function Home() {
           </Button>
         </div>
       </div>
-      <div className="mt-8 relative w-full h-48 sm:h-64 rounded-xl overflow-hidden border">
+      <div className="mt-8 relative w-full h-48 sm:h-64 rounded-xl overflow-hidden border bg-muted">
         <Image
           src="https://images.unsplash.com/photo-1519558260268-cde7e03a0152?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2340"
           alt="IoT illustration"
           fill
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
           className="object-cover object-center"
           priority
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
         />
       </div>
       <section className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

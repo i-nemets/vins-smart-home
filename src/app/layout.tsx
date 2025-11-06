@@ -4,17 +4,22 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { CookieBanner } from "@/components/CookieBanner";
+import { ChatWidget } from "@/components/ChatWidget";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
+  display: "swap",
+  preload: true,
 });
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -46,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className="dark">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md">Перейти к основному содержимому</a>
         <header className="sticky top-0 z-50 border-b border-black/10 dark:border-white/10 backdrop-blur supports-[backdrop-filter]:bg-background/60">
           <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
             <a href="/" className="font-medium">VINS</a>
@@ -89,6 +95,7 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
         <CookieBanner />
+        <ChatWidget />
       </body>
     </html>
   );
