@@ -19,6 +19,16 @@ export default function BlogPage() {
           </Link>
         </li>
         <li>
+          <Link href="/blog/scenarii-umnogo-doma-12-idey" className="hover:underline">
+            12 сценариев умного дома: практично и без лишних затрат
+          </Link>
+        </li>
+        <li>
+          <Link href="/blog/zigbee-zwave-wifi" className="hover:underline">
+            Zigbee vs Z-Wave vs Wi‑Fi: что выбрать для умного дома
+          </Link>
+        </li>
+        <li>
           <Link href="/blog/mqtt-iot-basis" className="hover:underline">
             MQTT в IoT: основы и best‑practice
           </Link>
@@ -26,6 +36,11 @@ export default function BlogPage() {
         <li>
           <Link href="/blog/iiot-oee" className="hover:underline">
             IIoT и OEE: как посчитать и повысить
+          </Link>
+        </li>
+        <li>
+          <Link href="/blog/iot-iiot-bezopasnost" className="hover:underline">
+            Безопасность IoT и IIoT: 10 практик для защиты от угроз
           </Link>
         </li>
       </ul>

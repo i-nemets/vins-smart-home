@@ -24,3 +24,14 @@ export const leadSchema = z.object({
 });
 
 export type LeadInput = z.infer<typeof leadSchema>;
+
+export const leadMagnetSchema = z.object({
+  name: z.string().min(2, "Укажите имя"),
+  email: z.string().email("Укажите корректный email"),
+  consent: z.boolean().refine((v) => v === true, {
+    message: "Необходимо согласие с политикой",
+  }),
+  hp: z.string().optional(),
+});
+
+export type LeadMagnetInput = z.infer<typeof leadMagnetSchema>;

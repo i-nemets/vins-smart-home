@@ -147,6 +147,24 @@ export default function Home() {
       </section>
 
       <section className="mt-14">
+        <h2 className="text-xl font-semibold">Цифры и факты</h2>
+        <div className="mt-6 grid gap-6 sm:grid-cols-3">
+          <div>
+            <div className="text-3xl font-semibold">50+ </div>
+            <div className="text-sm text-muted-foreground">реализованных проектов</div>
+          </div>
+          <div>
+            <div className="text-3xl font-semibold">7 лет</div>
+            <div className="text-sm text-muted-foreground">опыта в IoT/IIoT/Smart Home</div>
+          </div>
+          <div>
+            <div className="text-3xl font-semibold">12% </div>
+            <div className="text-sm text-muted-foreground">средний прирост OEE в пилотах</div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-14">
         <h2 className="text-xl font-semibold">Как мы работаем</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Card>
@@ -172,6 +190,30 @@ export default function Home() {
               <CardTitle>4. Пуск и сервис</CardTitle>
               <CardDescription>Настройка, обучение, SLA</CardDescription>
             </CardHeader>
+          </Card>
+        </div>
+      </section>
+
+      <section className="mt-14">
+        <h2 className="text-xl font-semibold">Отзывы</h2>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <Card>
+            <CardHeader>
+              <CardTitle>Андрей К.</CardTitle>
+              <CardDescription>Частный дом, 240 м²</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">Сценарии света и климат сделали дом комфортнее. Понравилась чёткая смета и сроки.</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Елена М.</CardTitle>
+              <CardDescription>Производство (пилот IIoT)</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">За месяц подключили 4 станка, получили панель и базовый OEE. Планируем масштабирование.</p>
+            </CardContent>
           </Card>
         </div>
       </section>
