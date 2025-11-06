@@ -15,25 +15,41 @@ import {
 } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
-import { ShieldCheck, Workflow, PlugZap } from "lucide-react";
+import {
+  ShieldCheck,
+  Workflow,
+  PlugZap,
+  Home as HomeIcon,
+  Cpu,
+  Factory,
+  TrendingUp,
+  Users,
+  Award,
+} from "lucide-react";
 
 export default function Home() {
   return (
-    <main id="main-content" className="px-6 py-16 sm:py-24 md:py-28 lg:py-32 max-w-6xl mx-auto">
+    <main
+      id="main-content"
+      className="px-6 py-16 sm:py-24 md:py-28 lg:py-32 max-w-6xl mx-auto"
+    >
       <div className="max-w-3xl">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
+        <div className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 text-sm mb-4">
+          🚀 7 лет на рынке IoT/IIoT
+        </div>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight bg-gradient-to-br from-white via-white to-white/60 bg-clip-text text-transparent">
           Умный дом, IoT и IIoT под ключ
         </h1>
-        <p className="mt-5 text-base sm:text-lg text-black/70 dark:text-white/70">
+        <p className="mt-6 text-lg sm:text-xl text-white/70 leading-relaxed">
           Проектируем и внедряем: аудит, оборудование, интеграция и поддержка.
           Работаем под ключ для частных домов и производства. Фокус на
           результат, безопасность и SLA.
         </p>
-        <div className="mt-8 flex flex-col sm:flex-row gap-3">
-          <Button asChild>
+        <div className="mt-10 flex flex-col sm:flex-row gap-4">
+          <Button asChild size="lg" className="shadow-lg shadow-primary/20">
             <a href="/brif">Получить предложение</a>
           </Button>
-          <Button variant="outline" asChild>
+          <Button variant="outline" asChild size="lg">
             <a href="/kejsy">Смотреть кейсы</a>
           </Button>
         </div>
@@ -50,10 +66,16 @@ export default function Home() {
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
         />
       </div>
-      <section className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <Card>
+      <section className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Card className="relative overflow-hidden group hover:shadow-xl transition-shadow border-2 hover:border-blue-500/50">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full -mr-16 -mt-16" />
           <CardHeader>
-            <CardTitle>Умный дом</CardTitle>
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-blue-500/10 text-blue-400">
+                <HomeIcon className="w-6 h-6" />
+              </div>
+              <CardTitle>Умный дом</CardTitle>
+            </div>
             <CardDescription>
               Освещение, климат, безопасность, мультимедиа
             </CardDescription>
@@ -65,14 +87,20 @@ export default function Home() {
             </p>
           </CardContent>
           <CardFooter>
-            <Button asChild size="sm">
+            <Button asChild size="sm" className="group-hover:shadow-md">
               <a href="/uslugi/umnyj-dom">Подробнее</a>
             </Button>
           </CardFooter>
         </Card>
-        <Card>
+        <Card className="relative overflow-hidden group hover:shadow-xl transition-shadow border-2 hover:border-purple-500/50">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-transparent rounded-full -mr-16 -mt-16" />
           <CardHeader>
-            <CardTitle>IoT</CardTitle>
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-purple-500/10 text-purple-400">
+                <Cpu className="w-6 h-6" />
+              </div>
+              <CardTitle>IoT</CardTitle>
+            </div>
             <CardDescription>
               Датчики, шлюзы, телеметрия, облако
             </CardDescription>
@@ -84,14 +112,20 @@ export default function Home() {
             </p>
           </CardContent>
           <CardFooter>
-            <Button asChild size="sm">
+            <Button asChild size="sm" className="group-hover:shadow-md">
               <a href="/uslugi/iot">Подробнее</a>
             </Button>
           </CardFooter>
         </Card>
-        <Card>
+        <Card className="relative overflow-hidden group hover:shadow-xl transition-shadow border-2 hover:border-green-500/50">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-transparent rounded-full -mr-16 -mt-16" />
           <CardHeader>
-            <CardTitle>IIoT</CardTitle>
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-green-500/10 text-green-400">
+                <Factory className="w-6 h-6" />
+              </div>
+              <CardTitle>IIoT</CardTitle>
+            </div>
             <CardDescription>
               Подключение станков, OEE, SCADA/MES
             </CardDescription>
@@ -102,7 +136,7 @@ export default function Home() {
             </p>
           </CardContent>
           <CardFooter>
-            <Button asChild size="sm">
+            <Button asChild size="sm" className="group-hover:shadow-md">
               <a href="/uslugi/iiot">Подробнее</a>
             </Button>
           </CardFooter>
@@ -148,20 +182,47 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-14">
-        <h2 className="text-xl font-semibold">Цифры и факты</h2>
-        <div className="mt-6 grid gap-6 sm:grid-cols-3">
-          <div>
-            <div className="text-3xl font-semibold">50+ </div>
-            <div className="text-sm text-muted-foreground">реализованных проектов</div>
+      <section className="mt-14 p-8 rounded-2xl bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-green-500/5 border border-white/10">
+        <h2 className="text-2xl font-semibold">Цифры и факты</h2>
+        <div className="mt-6 grid gap-8 sm:grid-cols-3">
+          <div className="flex items-start gap-3">
+            <div className="p-2 rounded-lg bg-blue-500/10">
+              <Award className="w-5 h-5 text-blue-400" />
+            </div>
+            <div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                50+
+              </div>
+              <div className="text-sm text-muted-foreground mt-1">
+                реализованных проектов
+              </div>
+            </div>
           </div>
-          <div>
-            <div className="text-3xl font-semibold">7 лет</div>
-            <div className="text-sm text-muted-foreground">опыта в IoT/IIoT/Smart Home</div>
+          <div className="flex items-start gap-3">
+            <div className="p-2 rounded-lg bg-purple-500/10">
+              <Users className="w-5 h-5 text-purple-400" />
+            </div>
+            <div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-green-400 bg-clip-text text-transparent">
+                7 лет
+              </div>
+              <div className="text-sm text-muted-foreground mt-1">
+                опыта в IoT/IIoT/Smart Home
+              </div>
+            </div>
           </div>
-          <div>
-            <div className="text-3xl font-semibold">12% </div>
-            <div className="text-sm text-muted-foreground">средний прирост OEE в пилотах</div>
+          <div className="flex items-start gap-3">
+            <div className="p-2 rounded-lg bg-green-500/10">
+              <TrendingUp className="w-5 h-5 text-green-400" />
+            </div>
+            <div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                12%
+              </div>
+              <div className="text-sm text-muted-foreground mt-1">
+                средний прирост OEE в пилотах
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -205,7 +266,10 @@ export default function Home() {
               <CardDescription>Частный дом, 240 м²</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">Сценарии света и климат сделали дом комфортнее. Понравилась чёткая смета и сроки.</p>
+              <p className="text-sm text-muted-foreground">
+                Сценарии света и климат сделали дом комфортнее. Понравилась
+                чёткая смета и сроки.
+              </p>
             </CardContent>
           </Card>
           <Card>
@@ -214,7 +278,10 @@ export default function Home() {
               <CardDescription>Производство (пилот IIoT)</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">За месяц подключили 4 станка, получили панель и базовый OEE. Планируем масштабирование.</p>
+              <p className="text-sm text-muted-foreground">
+                За месяц подключили 4 станка, получили панель и базовый OEE.
+                Планируем масштабирование.
+              </p>
             </CardContent>
           </Card>
         </div>
@@ -273,13 +340,21 @@ export default function Home() {
       </section>
 
       <Separator className="my-14" />
-      <div className="flex flex-col sm:flex-row gap-3">
-        <Button asChild>
-          <a href="/brif">Получить предложение</a>
-        </Button>
-        <Button variant="outline" asChild>
-          <a href="/kejsy">Смотреть кейсы</a>
-        </Button>
+      <div className="text-center py-12 px-6 rounded-2xl bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-transparent border border-blue-500/20">
+        <h2 className="text-2xl sm:text-3xl font-bold">
+          Готовы начать проект?
+        </h2>
+        <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
+          Заполните бриф или позвоните — проведём аудит и подготовим смету
+        </p>
+        <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+          <Button asChild size="lg" className="shadow-lg shadow-primary/30">
+            <a href="/brif">Получить предложение</a>
+          </Button>
+          <Button variant="outline" asChild size="lg">
+            <a href="/kejsy">Смотреть кейсы</a>
+          </Button>
+        </div>
       </div>
       <script
         type="application/ld+json"
