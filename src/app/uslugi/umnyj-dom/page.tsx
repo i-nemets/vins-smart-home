@@ -1,5 +1,19 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export const metadata: Metadata = {
   title: "Умный дом под ключ: проектирование, монтаж и интеграция",
@@ -29,6 +43,102 @@ export default function SmartHomePage() {
         <Button variant="outline" asChild>
           <a href="/kejsy">Смотреть кейсы</a>
         </Button>
+      </div>
+
+      <section className="mt-14">
+        <h2 className="text-xl font-semibold">Как мы работаем</h2>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Card><CardHeader><CardTitle>1. Аудит</CardTitle><CardDescription>Сценарии и ТЗ</CardDescription></CardHeader></Card>
+          <Card><CardHeader><CardTitle>2. Проект</CardTitle><CardDescription>Смета и спецификация</CardDescription></CardHeader></Card>
+          <Card><CardHeader><CardTitle>3. Монтаж</CardTitle><CardDescription>Поставка и инсталляция</CardDescription></CardHeader></Card>
+          <Card><CardHeader><CardTitle>4. Пуск/сервис</CardTitle><CardDescription>Настройка, обучение, SLA</CardDescription></CardHeader></Card>
+        </div>
+      </section>
+
+      <section className="mt-14">
+        <h2 className="text-xl font-semibold">Пакеты и стоимость</h2>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Card>
+            <CardHeader>
+              <CardTitle>Базовый</CardTitle>
+              <CardDescription>Освещение + базовая безопасность</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-2xl font-semibold">от 2 500 ₽/м²</p>
+              <ul className="mt-3 text-sm text-muted-foreground list-disc pl-5 space-y-1">
+                <li>Сценарии света</li>
+                <li>Датчики движения/протечки</li>
+                <li>Базовая стойка/сеть</li>
+              </ul>
+            </CardContent>
+            <CardFooter>
+              <Button asChild className="w-full"><a href="/brif">Запросить смету</a></Button>
+            </CardFooter>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Комфорт</CardTitle>
+              <CardDescription>Свет + климат + безопасность</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-2xl font-semibold">от 4 000 ₽/м²</p>
+              <ul className="mt-3 text-sm text-muted-foreground list-disc pl-5 space-y-1">
+                <li>Климат по зонам</li>
+                <li>Видеонаблюдение/СКУД</li>
+                <li>Резервирование питания</li>
+              </ul>
+            </CardContent>
+            <CardFooter>
+              <Button asChild className="w-full"><a href="/brif">Запросить смету</a></Button>
+            </CardFooter>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Премиум</CardTitle>
+              <CardDescription>Полный комплект + мультимедиа</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-2xl font-semibold">индивидуально</p>
+              <ul className="mt-3 text-sm text-muted-foreground list-disc pl-5 space-y-1">
+                <li>Мультирум/кинотеатр</li>
+                <li>Сложные интеграции</li>
+                <li>Расширенный SLA</li>
+              </ul>
+            </CardContent>
+            <CardFooter>
+              <Button asChild className="w-full"><a href="/brif">Запросить смету</a></Button>
+            </CardFooter>
+          </Card>
+        </div>
+      </section>
+
+      <section className="mt-14">
+        <h2 className="text-xl font-semibold">FAQ</h2>
+        <div className="mt-6">
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="q1">
+              <AccordionTrigger>Сколько длится проект?</AccordionTrigger>
+              <AccordionContent>Обычно 2–6 недель, зависит от площади и набора подсистем.</AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="q2">
+              <AccordionTrigger>Можно ли интегрировать уже купленное оборудование?</AccordionTrigger>
+              <AccordionContent>Да, поддерживаем популярные протоколы и бренды, оценим совместимость на аудите.</AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="q3">
+              <AccordionTrigger>Как формируется смета?</AccordionTrigger>
+              <AccordionContent>По проекту и сценариям: оборудование, работы, пуск и сервис. Предоставляем развернутую смету.</AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="q4">
+              <AccordionTrigger>Какие гарантии и сервис?</AccordionTrigger>
+              <AccordionContent>Гарантия производителя + наша гарантия на работы. Возможен SLA с регламентом реакции.</AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </section>
+
+      <div className="mt-12 flex gap-3">
+        <Button asChild><a href="/brif">Получить предложение</a></Button>
+        <Button variant="outline" asChild><a href="/kejsy">Смотреть кейсы</a></Button>
       </div>
       <script
         type="application/ld+json"
