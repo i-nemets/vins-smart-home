@@ -1,101 +1,180 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="px-6 py-16 sm:py-24 md:py-28 lg:py-32 max-w-6xl mx-auto">
+      <div className="max-w-3xl">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
+          Умный дом, IoT и IIoT под ключ
+        </h1>
+        <p className="mt-5 text-base sm:text-lg text-black/70 dark:text-white/70">
+          Проектируем и внедряем: аудит, оборудование, интеграция и поддержка. Работаем под ключ для частных домов и
+          производства. Фокус на результат, безопасность и SLA.
+        </p>
+        <div className="mt-8 flex flex-col sm:flex-row gap-3">
+          <Button asChild>
+            <a href="/brif">Получить предложение</a>
+          </Button>
+          <Button variant="outline" asChild>
+            <a href="/kejsy">Смотреть кейсы</a>
+          </Button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+      <section className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <Card>
+          <CardHeader>
+            <CardTitle>Умный дом</CardTitle>
+            <CardDescription>Освещение, климат, безопасность, мультимедиа</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Проектирование, поставка и монтаж «под ключ». Сценарии, надёжность и сервис.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Button asChild size="sm">
+              <a href="/uslugi/umnyj-dom">Подробнее</a>
+            </Button>
+          </CardFooter>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>IoT</CardTitle>
+            <CardDescription>Датчики, шлюзы, телеметрия, облако</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              От прототипа к промышленной эксплуатации. Интеграции и безопасность.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Button asChild size="sm">
+              <a href="/uslugi/iot">Подробнее</a>
+            </Button>
+          </CardFooter>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>IIoT</CardTitle>
+            <CardDescription>Подключение станков, OEE, SCADA/MES</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Сбор данных, панели мониторинга, интеграции с MES/ERP. SLA.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Button asChild size="sm">
+              <a href="/uslugi/iiot">Подробнее</a>
+            </Button>
+          </CardFooter>
+        </Card>
+      </section>
+
+      <section className="mt-14">
+        <h2 className="text-xl font-semibold">Почему мы</h2>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Card>
+            <CardHeader>
+              <CardTitle>Под ключ</CardTitle>
+              <CardDescription>Проект → Поставка → Монтаж → Сервис</CardDescription>
+            </CardHeader>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Надёжность и безопасность</CardTitle>
+              <CardDescription>Сети, резервирование, доступы, аудит</CardDescription>
+            </CardHeader>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Интеграции</CardTitle>
+              <CardDescription>KNX, Zigbee/Z‑Wave, OPC UA/Modbus, API</CardDescription>
+            </CardHeader>
+          </Card>
+        </div>
+      </section>
+
+      <section className="mt-14">
+        <h2 className="text-xl font-semibold">Как мы работаем</h2>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Card><CardHeader><CardTitle>1. Аудит</CardTitle><CardDescription>Сценарии и цели</CardDescription></CardHeader></Card>
+          <Card><CardHeader><CardTitle>2. Проект</CardTitle><CardDescription>Спецификация и смета</CardDescription></CardHeader></Card>
+          <Card><CardHeader><CardTitle>3. Внедрение</CardTitle><CardDescription>Поставка и монтаж</CardDescription></CardHeader></Card>
+          <Card><CardHeader><CardTitle>4. Пуск и сервис</CardTitle><CardDescription>Настройка, обучение, SLA</CardDescription></CardHeader></Card>
+        </div>
+      </section>
+
+      <section className="mt-14">
+        <h2 className="text-xl font-semibold">Партнёры и бренды</h2>
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-sm text-muted-foreground">
+          <div className="border rounded-md h-14 flex items-center justify-center">Brand 1</div>
+          <div className="border rounded-md h-14 flex items-center justify-center">Brand 2</div>
+          <div className="border rounded-md h-14 flex items-center justify-center">Brand 3</div>
+          <div className="border rounded-md h-14 flex items-center justify-center">Brand 4</div>
+          <div className="border rounded-md h-14 flex items-center justify-center">Brand 5</div>
+          <div className="border rounded-md h-14 flex items-center justify-center">Brand 6</div>
+        </div>
+      </section>
+
+      <section className="mt-14">
+        <h2 className="text-xl font-semibold">FAQ</h2>
+        <div className="mt-6">
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="q1">
+              <AccordionTrigger>Сколько занимает внедрение?</AccordionTrigger>
+              <AccordionContent>Обычно 2–6 недель в зависимости от объёма и готовности объекта.</AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="q2">
+              <AccordionTrigger>Как формируется стоимость?</AccordionTrigger>
+              <AccordionContent>По проекту и смете: оборудование, работы, пуск и сервис.</AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="q3">
+              <AccordionTrigger>Работаете с существующими системами?</AccordionTrigger>
+              <AccordionContent>Да, интегрируемся через стандартные протоколы и API.</AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </section>
+
+      <Separator className="my-14" />
+      <div className="flex flex-col sm:flex-row gap-3">
+        <Button asChild>
+          <a href="/brif">Получить предложение</a>
+        </Button>
+        <Button variant="outline" asChild>
+          <a href="/kejsy">Смотреть кейсы</a>
+        </Button>
+      </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Главная", item: "/" },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              { "@type": "Question", name: "Сколько занимает внедрение?", acceptedAnswer: { "@type": "Answer", text: "Обычно 2–6 недель в зависимости от объёма и готовности объекта." } },
+              { "@type": "Question", name: "Как формируется стоимость?", acceptedAnswer: { "@type": "Answer", text: "По проекту и смете: оборудование, работы, пуск и сервис." } },
+              { "@type": "Question", name: "Работаете с существующими системами?", acceptedAnswer: { "@type": "Answer", text: "Да, интегрируемся через стандартные протоколы и API." } }
+            ],
+          }),
+        }}
+      />
+    </main>
   );
 }
