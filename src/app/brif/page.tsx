@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { leadSchema, type LeadInput } from "@/lib/validators";
 import { Input } from "@/components/ui/input";
+import InputMask from "react-input-mask";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -109,14 +110,16 @@ export default function BriefPage() {
             </div>
             <div className="flex flex-col gap-2">
               <Label htmlFor="phone">Телефон</Label>
-              <Input
-                id="phone"
-                type="tel"
-                inputMode="tel"
-                placeholder="+7 900 000-00-00"
-                pattern="[+0-9\s()-]{6,}"
-                {...register("phone")}
-              />
+              <InputMask mask="+7 (999) 999-99-99" {...register("phone")}>
+                {(inputProps: React.InputHTMLAttributes<HTMLInputElement>) => (
+                  <Input
+                    {...inputProps}
+                    id="phone"
+                    type="tel"
+                    placeholder="+7 (900) 000-00-00"
+                  />
+                )}
+              </InputMask>
               {errors.phone && (
                 <p className="text-sm text-destructive">
                   {errors.phone.message}

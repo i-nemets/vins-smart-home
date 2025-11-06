@@ -1,8 +1,13 @@
 import { NextResponse } from "next/server";
 import { leadMagnetSchema } from "@/lib/validators";
 import { sendLeadEmail } from "@/lib/mailer";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 export async function POST(req: Request) {
+  const ip = req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") || "unknown";
+  if (!checkRateLimit(ip, 5, 60000)) {
+    return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429 });
+  }
   try {
     const json = await req.json();
     const parsed = leadMagnetSchema.safeParse(json);
