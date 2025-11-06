@@ -26,30 +26,58 @@ import {
   Users,
   Award,
 } from "lucide-react";
+import { CountUpStat } from "@/components/CountUpStat";
 
 export default function Home() {
   return (
     <main
       id="main-content"
-      className="px-6 py-16 sm:py-24 md:py-28 lg:py-32 max-w-6xl mx-auto"
+      className="px-6 py-16 sm:py-24 md:py-28 lg:py-32 max-w-6xl mx-auto relative"
     >
-      <div className="max-w-3xl">
-        <div className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 text-sm mb-4">
-          🚀 7 лет на рынке IoT/IIoT
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
+        <div
+          className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"
+          style={{ animationDelay: "1s" }}
+        />
+        <div
+          className="absolute bottom-0 left-1/2 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-2000"
+          style={{ animationDelay: "2s" }}
+        />
+      </div>
+
+      <div className="max-w-4xl">
+        <div className="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600/30 to-purple-600/30 border border-blue-500/40 text-sm mb-6 backdrop-blur-sm shadow-lg shadow-blue-500/10">
+          <span className="text-blue-300">🚀</span> 7 лет на рынке IoT/IIoT
         </div>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight bg-gradient-to-br from-white via-white to-white/60 bg-clip-text text-transparent">
-          Умный дом, IoT и IIoT под ключ
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.1] tracking-tight">
+          <span className="bg-gradient-to-br from-white via-blue-100 to-purple-200 bg-clip-text text-transparent drop-shadow-2xl">
+            Умный дом, IoT и IIoT
+          </span>
+          <br />
+          <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            под ключ
+          </span>
         </h1>
-        <p className="mt-6 text-lg sm:text-xl text-white/70 leading-relaxed">
+        <p className="mt-8 text-xl sm:text-2xl text-white/80 leading-relaxed max-w-2xl">
           Проектируем и внедряем: аудит, оборудование, интеграция и поддержка.
-          Работаем под ключ для частных домов и производства. Фокус на
-          результат, безопасность и SLA.
+          Работаем под ключ для частных домов и производства.
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row gap-4">
-          <Button asChild size="lg" className="shadow-lg shadow-primary/20">
+        <div className="mt-12 flex flex-col sm:flex-row gap-5">
+          <Button
+            asChild
+            size="lg"
+            className="shadow-2xl shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 transition-all text-lg px-8 py-6 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500"
+          >
             <a href="/brif">Получить предложение</a>
           </Button>
-          <Button variant="outline" asChild size="lg">
+          <Button
+            variant="outline"
+            asChild
+            size="lg"
+            className="border-2 hover:bg-white/10 hover:scale-105 transition-all text-lg px-8 py-6 rounded-xl backdrop-blur-sm"
+          >
             <a href="/kejsy">Смотреть кейсы</a>
           </Button>
         </div>
@@ -67,8 +95,8 @@ export default function Home() {
         />
       </div>
       <section className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <Card className="relative overflow-hidden group hover:shadow-xl transition-shadow border-2 hover:border-blue-500/50">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full -mr-16 -mt-16" />
+        <Card className="relative overflow-hidden group hover:shadow-2xl hover:shadow-blue-500/20 transition-all border-2 border-blue-500/30 hover:border-blue-400/60 bg-gradient-to-br from-blue-500/5 to-transparent backdrop-blur-sm">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-transparent rounded-full -mr-16 -mt-16 blur-2xl group-hover:blur-3xl transition-all" />
           <CardHeader>
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-blue-500/10 text-blue-400">
@@ -92,8 +120,8 @@ export default function Home() {
             </Button>
           </CardFooter>
         </Card>
-        <Card className="relative overflow-hidden group hover:shadow-xl transition-shadow border-2 hover:border-purple-500/50">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-transparent rounded-full -mr-16 -mt-16" />
+        <Card className="relative overflow-hidden group hover:shadow-2xl hover:shadow-purple-500/20 transition-all border-2 border-purple-500/30 hover:border-purple-400/60 bg-gradient-to-br from-purple-500/5 to-transparent backdrop-blur-sm">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/20 to-transparent rounded-full -mr-16 -mt-16 blur-2xl group-hover:blur-3xl transition-all" />
           <CardHeader>
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-purple-500/10 text-purple-400">
@@ -117,8 +145,8 @@ export default function Home() {
             </Button>
           </CardFooter>
         </Card>
-        <Card className="relative overflow-hidden group hover:shadow-xl transition-shadow border-2 hover:border-green-500/50">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-transparent rounded-full -mr-16 -mt-16" />
+        <Card className="relative overflow-hidden group hover:shadow-2xl hover:shadow-green-500/20 transition-all border-2 border-green-500/30 hover:border-green-400/60 bg-gradient-to-br from-green-500/5 to-transparent backdrop-blur-sm">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/20 to-transparent rounded-full -mr-16 -mt-16 blur-2xl group-hover:blur-3xl transition-all" />
           <CardHeader>
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-green-500/10 text-green-400">
@@ -190,9 +218,11 @@ export default function Home() {
               <Award className="w-5 h-5 text-blue-400" />
             </div>
             <div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                50+
-              </div>
+              <CountUpStat
+                end={50}
+                suffix="+"
+                className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+              />
               <div className="text-sm text-muted-foreground mt-1">
                 реализованных проектов
               </div>
@@ -203,9 +233,11 @@ export default function Home() {
               <Users className="w-5 h-5 text-purple-400" />
             </div>
             <div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-green-400 bg-clip-text text-transparent">
-                7 лет
-              </div>
+              <CountUpStat
+                end={7}
+                suffix=" лет"
+                className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-green-400 bg-clip-text text-transparent"
+              />
               <div className="text-sm text-muted-foreground mt-1">
                 опыта в IoT/IIoT/Smart Home
               </div>
@@ -216,9 +248,11 @@ export default function Home() {
               <TrendingUp className="w-5 h-5 text-green-400" />
             </div>
             <div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-                12%
-              </div>
+              <CountUpStat
+                end={12}
+                suffix="%"
+                className="text-4xl font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent"
+              />
               <div className="text-sm text-muted-foreground mt-1">
                 средний прирост OEE в пилотах
               </div>
@@ -258,29 +292,37 @@ export default function Home() {
       </section>
 
       <section className="mt-14">
-        <h2 className="text-xl font-semibold">Отзывы</h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Card>
+        <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent inline-block">
+          Отзывы
+        </h2>
+        <div className="mt-6 grid gap-6 sm:grid-cols-2">
+          <Card className="backdrop-blur-sm bg-gradient-to-br from-blue-500/10 to-purple-500/5 border-2 border-blue-500/20 hover:border-blue-400/40 hover:shadow-xl hover:shadow-blue-500/10 transition-all">
             <CardHeader>
+              <div className="flex items-center gap-2">
+                <div className="text-yellow-400">★★★★★</div>
+              </div>
               <CardTitle>Андрей К.</CardTitle>
               <CardDescription>Частный дом, 240 м²</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
-                Сценарии света и климат сделали дом комфортнее. Понравилась
-                чёткая смета и сроки.
+              <p className="text-sm text-muted-foreground italic">
+                &ldquo;Сценарии света и климат сделали дом комфортнее.
+                Понравилась чёткая смета и сроки.&rdquo;
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="backdrop-blur-sm bg-gradient-to-br from-purple-500/10 to-green-500/5 border-2 border-purple-500/20 hover:border-purple-400/40 hover:shadow-xl hover:shadow-purple-500/10 transition-all">
             <CardHeader>
+              <div className="flex items-center gap-2">
+                <div className="text-yellow-400">★★★★★</div>
+              </div>
               <CardTitle>Елена М.</CardTitle>
               <CardDescription>Производство (пилот IIoT)</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
-                За месяц подключили 4 станка, получили панель и базовый OEE.
-                Планируем масштабирование.
+              <p className="text-sm text-muted-foreground italic">
+                &ldquo;За месяц подключили 4 станка, получили панель и базовый
+                OEE. Планируем масштабирование.&rdquo;
               </p>
             </CardContent>
           </Card>

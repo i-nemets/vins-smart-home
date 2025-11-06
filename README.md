@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VINS — IoT / IIoT / Smart Home
 
-## Getting Started
+Современный продающий сайт для услуг умного дома, IoT и IIoT с упором на SEO и конверсию.
 
-First, run the development server:
+## Стек
+- **Next.js 14** (App Router)
+- **shadcn/ui** (New York theme) + **Tailwind CSS**
+- **MDX** для блога
+- **React Hook Form** + **Zod** для форм
+- **Resend** для email-уведомлений
+- **Vercel Analytics** + **Speed Insights**
 
-```bash
+## Функции
+- ✅ 55+ страниц: главная, услуги, блог (16 статей), кейсы (5), FAQ (15 вопросов), гео (Минск/Москва), калькулятор, чек-лист
+- ✅ SEO: metadata/OG, sitemap/robots, JSON-LD (Service/Product/FAQPage/LocalBusiness/Breadcrumb/Article), canonical/hreflang
+- ✅ Формы: бриф с валидацией, маска телефона, UTM-захват, honeypot, rate-limit, согласие
+- ✅ Email: Resend integration для лидов и чек-листа
+- ✅ CRM: готовая интеграция HubSpot/Pipedrive/Webhook (требуется токен)
+- ✅ Аналитика: @vercel/analytics, Speed Insights, GA4/Meta Pixel (через ENV)
+- ✅ Перфоманс: preload шрифтов, image placeholders/sizes, skip-link, фокус-стили
+- ✅ Виджеты: cookie banner, Crisp chat (через ENV)
+
+## Установка
+
+\`\`\`bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ENV переменные
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Создайте `.env.local`:
 
-## Learn More
+\`\`\`bash
+# Site
+NEXT_PUBLIC_SITE_URL=https://ваш-домен
 
-To learn more about Next.js, take a look at the following resources:
+# Email (Resend)
+RESEND_API_KEY=re_...
+LEADS_TO_EMAIL=you@domain.com
+LEADS_FROM_EMAIL=noreply@resend.dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Analytics
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_META_PIXEL_ID=123456789
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Search Console / Meta Verification
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=...
+NEXT_PUBLIC_META_SITE_VERIFICATION=...
 
-## Deploy on Vercel
+# Chat (опционально)
+NEXT_PUBLIC_CRISP_WEBSITE_ID=...
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# CRM (выберите один)
+HUBSPOT_ACCESS_TOKEN=...
+# или
+PIPEDRIVE_API_TOKEN=...
+# или
+CRM_WEBHOOK_URL=https://...
+\`\`\`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Деплой
+
+### Vercel (рекомендуется)
+1. Подключите GitHub/GitLab репозиторий к Vercel
+2. Добавьте ENV переменные в Settings → Environment Variables
+3. Deploy автоматически при push в main
+
+### Другой хостинг
+\`\`\`bash
+npm run build
+npm start
+\`\`\`
+
+## Структура
+
+- \`src/app/\` — страницы и API-роуты
+- \`src/components/\` — переиспользуемые компоненты и UI (shadcn/ui)
+- \`src/lib/\` — утилиты, валидаторы, CRM, email
+- \`public/\` — статические файлы
+
+## Контент
+
+### Блог (MDX)
+Добавьте новую статью: \`src/app/blog/<slug>/page.mdx\`
+
+### Кейсы (MDX)
+Добавьте кейс: \`src/app/kejsy/<slug>/page.mdx\`
+
+### Гео-страницы
+Динамические роуты: \`/uslugi/umnyj-dom/<город>\` и \`/uslugi/iiot/<город>\`
+
+## SEO
+- Sitemap: автогенерация через \`app/sitemap.ts\`
+- Robots: \`app/robots.ts\`
+- OG images: динамические для блога/кейсов (\`opengraph-image.tsx\`)
+- JSON-LD: на всех ключевых страницах
+
+## Формы и лиды
+- Бриф: \`/brif\` → API \`/api/lead\` → Resend + CRM
+- Чек-лист: \`/checklist\` → API \`/api/checklist\` → email с PDF
+
+## Поддержка
+Для вопросов и доработок: info@vins.example
