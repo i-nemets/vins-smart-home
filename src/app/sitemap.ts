@@ -8,6 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/uslugi/umnyj-dom",
     "/uslugi/iot",
     "/uslugi/iiot",
+    "/uslugi/umnyj-dom/minsk",
+    "/uslugi/iiot/minsk",
     "/kejsy",
     "/blog",
     "/o-kompanii",

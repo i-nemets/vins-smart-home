@@ -17,6 +17,10 @@ export const leadSchema = z.object({
   utm_term: z.string().optional(),
   utm_content: z.string().optional(),
   referrer: z.string().optional(),
+  consent: z.boolean().refine((v) => v === true, {
+    message: "Необходимо согласие с политикой",
+  }),
+  hp: z.string().optional(),
 });
 
 export type LeadInput = z.infer<typeof leadSchema>;

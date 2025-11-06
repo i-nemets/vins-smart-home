@@ -89,6 +89,14 @@ export default function BriefPage() {
           <input type="hidden" {...register("utm_term")} />
           <input type="hidden" {...register("utm_content")} />
           <input type="hidden" {...register("referrer")} />
+          <input
+            type="text"
+            className="hidden"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            {...register("hp")}
+          />
           <div className="grid gap-5 sm:grid-cols-2">
             <div className="flex flex-col gap-2">
               <Label htmlFor="name">Имя</Label>
@@ -103,7 +111,10 @@ export default function BriefPage() {
               <Label htmlFor="phone">Телефон</Label>
               <Input
                 id="phone"
+                type="tel"
+                inputMode="tel"
                 placeholder="+7 900 000-00-00"
+                pattern="[+0-9\s()-]{6,}"
                 {...register("phone")}
               />
               {errors.phone && (
@@ -173,6 +184,23 @@ export default function BriefPage() {
             <Button type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Отправка..." : "Отправить бриф"}
             </Button>
+            <label className="flex items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                {...register("consent", { required: true })}
+              />
+              <span>
+                Я согласен с{" "}
+                <a
+                  className="underline"
+                  href="/privacy"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Политикой конфиденциальности
+                </a>
+              </span>
+            </label>
             {status === "success" && (
               <span className="text-sm text-green-600 dark:text-green-400">
                 Отправлено. Свяжемся в ближайшее время.

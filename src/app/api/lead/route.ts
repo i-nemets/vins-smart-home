@@ -18,6 +18,10 @@ export async function POST(req: Request) {
       ...parsed.data,
       referrer: parsed.data.referrer || req.headers.get("referer") || undefined,
     };
+    // Honeypot check
+    if (lead.hp && lead.hp.trim() !== "") {
+      return NextResponse.json({ error: "Bad request" }, { status: 400 });
+    }
     console.log("NEW_LEAD", lead);
     const to = process.env.LEADS_TO_EMAIL;
     if (to) {

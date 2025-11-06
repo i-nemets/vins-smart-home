@@ -14,6 +14,18 @@ export default function ServicesPage() {
         Выберите направление: умный дом (B2C), IoT (прототипы и интеграции) или IIoT (подключение оборудования,
         мониторинг OEE и интеграции со SCADA/MES).
       </p>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Услуги", item: "/uslugi" },
+            ],
+          }),
+        }}
+      />
     </main>
   );
 }

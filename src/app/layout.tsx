@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { CookieBanner } from "@/components/CookieBanner";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ru" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -70,6 +71,7 @@ export default function RootLayout({
         </footer>
         <Analytics />
         <SpeedInsights />
+        <CookieBanner />
       </body>
     </html>
   );

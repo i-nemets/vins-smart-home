@@ -16,9 +16,21 @@ export default function IIoTCityPage({ params }: Props) {
   return (
     <main className="max-w-6xl mx-auto px-6 py-16">
       <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">IIoT в {city}</h1>
-      <p className="mt-4 text-black/70 dark:text-white/70">
-        Подключение оборудования, сбор телеметрии, панели мониторинга и расчёт OEE. Интеграции со SCADA/MES/ERP.
-      </p>
+      <p className="mt-4 text-black/70 dark:text-white/70">Подключаем станки и линии в {city}: сбор телеметрии, OEE, панели мониторинга, интеграции SCADA/MES/ERP. SLA и безопасность на уровне предприятия.</p>
+      <ul className="mt-6 grid gap-2 list-disc pl-5 text-sm text-muted-foreground">
+        <li>OPC UA/Modbus/TCP, ретрофит без остановки процесса</li>
+        <li>Хранилище и очистка данных, роли и доступы</li>
+        <li>Панели по ролям (оператор/мастер/директор), оповещения</li>
+        <li>Интеграции: SCADA/MES/ERP</li>
+      </ul>
+      <section className="mt-10">
+        <h2 className="text-lg font-medium">FAQ ({city})</h2>
+        <div className="mt-4 space-y-3 text-sm text-muted-foreground">
+          <p><strong>Сроки:</strong> пилот — 2–4 недели, промвнедрение — от 1 мес.</p>
+          <p><strong>Безопасность:</strong> сегментация сети, VPN, RBAC, аудит.</p>
+          <p><strong>Интеграции:</strong> работа с существующей SCADA/MES или внедрение новой.</p>
+        </div>
+      </section>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

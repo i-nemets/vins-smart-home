@@ -18,7 +18,29 @@ export default function BlogPage() {
             Умный дом: частые ошибки и как их избежать
           </Link>
         </li>
+        <li>
+          <Link href="/blog/mqtt-iot-basis" className="hover:underline">
+            MQTT в IoT: основы и best‑practice
+          </Link>
+        </li>
+        <li>
+          <Link href="/blog/iiot-oee" className="hover:underline">
+            IIoT и OEE: как посчитать и повысить
+          </Link>
+        </li>
       </ul>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Блог", item: "/blog" },
+            ],
+          }),
+        }}
+      />
     </main>
   );
 }

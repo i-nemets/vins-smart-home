@@ -16,9 +16,21 @@ export default function SmartHomeCityPage({ params }: Props) {
   return (
     <main className="max-w-6xl mx-auto px-6 py-16">
       <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">Умный дом в {city}</h1>
-      <p className="mt-4 text-black/70 dark:text-white/70">
-        Полный цикл работ «под ключ»: проект, поставка, монтаж, настройка и сервис.
-      </p>
+      <p className="mt-4 text-black/70 dark:text-white/70">Проектирование и монтаж умного дома в {city}. Освещение, климат, безопасность и мультимедиа — с гарантией и сервисом.</p>
+      <ul className="mt-6 grid gap-2 list-disc pl-5 text-sm text-muted-foreground">
+        <li>Аудит объекта и сценарии под ваш образ жизни</li>
+        <li>Сети, стойка, ИБП, резервирование критичных узлов</li>
+        <li>Интеграции: KNX, Zigbee/Z‑Wave, HomeKit и др.</li>
+        <li>Пусконаладка и поддержка по SLA</li>
+      </ul>
+      <section className="mt-10">
+        <h2 className="text-lg font-medium">FAQ ({city})</h2>
+        <div className="mt-4 space-y-3 text-sm text-muted-foreground">
+          <p><strong>Сроки:</strong> от 2 до 6 недель в зависимости от объёма и готовности объекта.</p>
+          <p><strong>Бренды:</strong> подбираем под бюджет и сценарии (KNX/DMX/Zigbee).</p>
+          <p><strong>Гарантия:</strong> на оборудование и работы, сервисные визиты.</p>
+        </div>
+      </section>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
