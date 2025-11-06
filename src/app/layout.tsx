@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { CookieBanner } from "@/components/CookieBanner";
 import { ChatWidget } from "@/components/ChatWidget";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const geistSans = localFont({
@@ -61,6 +62,7 @@ export default function RootLayout({
               <a href="/blog" className="hover:opacity-80">Блог</a>
               <a href="/o-kompanii" className="hover:opacity-80">О компании</a>
               <a href="/kontakty" className="hover:opacity-80">Контакты</a>
+              <ThemeToggle />
             </nav>
             <div className="sm:hidden">
               <Sheet>
@@ -80,12 +82,46 @@ export default function RootLayout({
           </div>
         </header>
         {children}
-        <footer className="mt-16 border-t border-black/10 dark:border-white/10">
-          <div className="max-w-6xl mx-auto px-6 py-10 text-sm text-black/70 dark:text-white/70 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} VINS. Все права защищены.</p>
-            <div className="flex gap-5">
-              <a href="/privacy" className="hover:opacity-80">Политика конфиденциальности</a>
-              <a href="/terms" className="hover:opacity-80">Условия использования</a>
+        <footer className="mt-16 border-t border-white/10 bg-gradient-to-br from-blue-500/5 to-purple-500/5">
+          <div className="max-w-6xl mx-auto px-6 py-12">
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 text-sm">
+              <div>
+                <h3 className="font-semibold mb-3">VINS</h3>
+                <p className="text-muted-foreground text-xs leading-relaxed">Проектирование и внедрение умного дома, IoT и IIoT под ключ</p>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-3">Услуги</h3>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li><a href="/uslugi/umnyj-dom" className="hover:text-blue-400 transition-colors">Умный дом</a></li>
+                  <li><a href="/uslugi/iot" className="hover:text-purple-400 transition-colors">IoT</a></li>
+                  <li><a href="/uslugi/iiot" className="hover:text-green-400 transition-colors">IIoT</a></li>
+                  <li><a href="/kalkulyator" className="hover:text-blue-400 transition-colors">Калькулятор</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-3">Ресурсы</h3>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li><a href="/blog" className="hover:text-blue-400 transition-colors">Блог</a></li>
+                  <li><a href="/kejsy" className="hover:text-purple-400 transition-colors">Кейсы</a></li>
+                  <li><a href="/faq" className="hover:text-green-400 transition-colors">FAQ</a></li>
+                  <li><a href="/checklist" className="hover:text-blue-400 transition-colors">Чек-лист</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-3">Контакты</h3>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li><a href="tel:+375291234567" className="hover:text-blue-400 transition-colors">+375 (29) 123-45-67</a></li>
+                  <li><a href="mailto:info@vins.example" className="hover:text-purple-400 transition-colors">info@vins.example</a></li>
+                  <li><a href="/kontakty" className="hover:text-green-400 transition-colors">Все контакты</a></li>
+                </ul>
+              </div>
+            </div>
+            <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-4 justify-between items-center text-xs text-muted-foreground">
+              <p>© {new Date().getFullYear()} VINS. Все права защищены.</p>
+              <div className="flex gap-4">
+                <a href="/privacy" className="hover:text-blue-400 transition-colors">Политика</a>
+                <a href="/terms" className="hover:text-purple-400 transition-colors">Условия</a>
+              </div>
             </div>
           </div>
         </footer>

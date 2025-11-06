@@ -20,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/kalkulyator",
     "/checklist",
     "/faq",
+    "/resheniya",
+    "/resheniya/kvartira",
     "/privacy",
     "/terms",
   ];
