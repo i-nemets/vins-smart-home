@@ -337,25 +337,30 @@ export default function Home() {
           </section>
 
           <section className="mt-14">
-            <h2 className="text-xl font-semibold">Партнёры и бренды</h2>
-            <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-sm text-muted-foreground">
-              <div className="border rounded-md h-14 flex items-center justify-center">
-                Brand 1
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent inline-block">
+              Партнёры и бренды
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Работаем с ведущими производителями
+            </p>
+            <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-xs">
+              <div className="border-2 border-white/10 rounded-lg h-16 flex items-center justify-center hover:border-blue-400/50 hover:bg-blue-500/5 transition-all cursor-pointer grayscale hover:grayscale-0">
+                KNX
               </div>
-              <div className="border rounded-md h-14 flex items-center justify-center">
-                Brand 2
+              <div className="border-2 border-white/10 rounded-lg h-16 flex items-center justify-center hover:border-purple-400/50 hover:bg-purple-500/5 transition-all cursor-pointer grayscale hover:grayscale-0">
+                Schneider
               </div>
-              <div className="border rounded-md h-14 flex items-center justify-center">
-                Brand 3
+              <div className="border-2 border-white/10 rounded-lg h-16 flex items-center justify-center hover:border-green-400/50 hover:bg-green-500/5 transition-all cursor-pointer grayscale hover:grayscale-0">
+                ABB
               </div>
-              <div className="border rounded-md h-14 flex items-center justify-center">
-                Brand 4
+              <div className="border-2 border-white/10 rounded-lg h-16 flex items-center justify-center hover:border-blue-400/50 hover:bg-blue-500/5 transition-all cursor-pointer grayscale hover:grayscale-0">
+                Siemens
               </div>
-              <div className="border rounded-md h-14 flex items-center justify-center">
-                Brand 5
+              <div className="border-2 border-white/10 rounded-lg h-16 flex items-center justify-center hover:border-purple-400/50 hover:bg-purple-500/5 transition-all cursor-pointer grayscale hover:grayscale-0">
+                Philips
               </div>
-              <div className="border rounded-md h-14 flex items-center justify-center">
-                Brand 6
+              <div className="border-2 border-white/10 rounded-lg h-16 flex items-center justify-center hover:border-pink-400/50 hover:bg-pink-500/5 transition-all cursor-pointer grayscale hover:grayscale-0">
+                Xiaomi
               </div>
             </div>
           </section>

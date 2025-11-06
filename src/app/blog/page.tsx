@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <main className="max-w-6xl mx-auto px-6 py-16">
-      <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">Блог</h1>
-      <p className="mt-4 text-black/70 dark:text-white/70">Статьи и руководства по умному дому, IoT и IIoT.</p>
-      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="space-y-2">
-          <h3 className="font-medium">Умный дом</h3>
-          <ul className="list-disc pl-5 space-y-1 text-sm">
+      <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Блог</h1>
+      <p className="mt-4 text-lg text-muted-foreground">Статьи и руководства по умному дому, IoT и IIoT.</p>
+      <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="space-y-3">
+          <h3 className="text-lg font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Умный дом</h3>
+          <ul className="space-y-2 text-sm">
             <li><Link href="/blog/umnyj-dom-oshibki" className="hover:underline">Умный дом: частые ошибки</Link></li>
             <li><Link href="/blog/scenarii-umnogo-doma-12-idey" className="hover:underline">12 сценариев умного дома</Link></li>
             <li><Link href="/blog/zigbee-zwave-wifi" className="hover:underline">Zigbee vs Z-Wave vs Wi‑Fi</Link></li>
@@ -28,20 +28,21 @@ export default function BlogPage() {
             <li><Link href="/blog/umnyj-dom-bezopasnost" className="hover:underline">Безопасность умного дома</Link></li>
             <li><Link href="/blog/roi-umnogo-doma" className="hover:underline">ROI умного дома</Link></li>
             <li><Link href="/blog/home-assistant-homebridge" className="hover:underline">Home Assistant vs Homebridge</Link></li>
+            <li><Link href="/blog/vybor-umnogo-doma-guide" className="hover:underline">Как выбрать умный дом: гайд</Link></li>
           </ul>
         </div>
-        <div className="space-y-2">
-          <h3 className="font-medium">IoT</h3>
-          <ul className="list-disc pl-5 space-y-1 text-sm">
+        <div className="space-y-3">
+          <h3 className="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">IoT</h3>
+          <ul className="space-y-2 text-sm">
             <li><Link href="/blog/mqtt-iot-basis" className="hover:underline">MQTT: основы и best‑practice</Link></li>
             <li><Link href="/blog/lorawan-nb-iot" className="hover:underline">LoRaWAN vs NB‑IoT</Link></li>
             <li><Link href="/blog/datчики-iot-vybor" className="hover:underline">Датчики для IoT: выбор</Link></li>
             <li><Link href="/blog/iot-oblako-onpremise" className="hover:underline">IoT: облако или on‑premise</Link></li>
           </ul>
         </div>
-        <div className="space-y-2">
-          <h3 className="font-medium">IIoT</h3>
-          <ul className="list-disc pl-5 space-y-1 text-sm">
+        <div className="space-y-3">
+          <h3 className="text-lg font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">IIoT</h3>
+          <ul className="space-y-2 text-sm">
             <li><Link href="/blog/iiot-oee" className="hover:underline">IIoT и OEE</Link></li>
             <li><Link href="/blog/opc-ua-modbus" className="hover:underline">OPC UA и Modbus</Link></li>
             <li><Link href="/blog/podkluchit-stanok-iiot" className="hover:underline">Как подключить станок</Link></li>
@@ -49,6 +50,8 @@ export default function BlogPage() {
             <li><Link href="/blog/iiot-prediktiv" className="hover:underline">Предиктивная аналитика</Link></li>
             <li><Link href="/blog/roi-iiot" className="hover:underline">ROI IIoT</Link></li>
             <li><Link href="/blog/iot-iiot-bezopasnost" className="hover:underline">Безопасность IoT/IIoT</Link></li>
+            <li><Link href="/blog/iiot-checklist" className="hover:underline">IIoT: чек-лист перед внедрением</Link></li>
+            <li><Link href="/blog/grafana-vs-tableau-iiot" className="hover:underline">Grafana vs Tableau</Link></li>
           </ul>
         </div>
       </div>

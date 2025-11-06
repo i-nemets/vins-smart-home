@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 export default function CasesPage() {
   return (
     <main className="max-w-6xl mx-auto px-6 py-16">
-      <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">Кейсы</h1>
-      <p className="mt-4 text-black/70 dark:text-white/70">Истории внедрений и достигнутые результаты.</p>
+      <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Кейсы</h1>
+      <p className="mt-4 text-lg text-muted-foreground">Истории внедрений и достигнутые результаты с цифрами.</p>
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
           <h3 className="font-medium">Умный дом</h3>
