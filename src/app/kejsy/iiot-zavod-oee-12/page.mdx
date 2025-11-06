@@ -1,3 +1,5 @@
+import { CaseMetrics, SectionDivider, CallToAction } from "@/components/mdx/ArticleHeader";
+
 export const metadata = {
   title: "Кейс: IIoT на заводе — повышение OEE с 68% до 81%",
   description: "Подключили 10 станков, внедрили панели мониторинга и подняли OEE за 3 месяца",
@@ -5,75 +7,129 @@ export const metadata = {
 
 # Кейс: IIoT на заводе — OEE +13 п.п.
 
-<div className="my-8 p-6 rounded-xl bg-gradient-to-br from-green-500/10 to-blue-500/5 border-2 border-green-500/30">
-  <div className="grid gap-6 sm:grid-cols-3 text-center">
-    <div>
-      <div className="text-3xl font-bold text-green-400">68% → 81%</div>
-      <div className="text-sm text-muted-foreground mt-1">OEE за 3 месяца</div>
-    </div>
-    <div>
-      <div className="text-3xl font-bold text-blue-400">10 станков</div>
-      <div className="text-sm text-muted-foreground mt-1">подключено</div>
-    </div>
-    <div>
-      <div className="text-3xl font-bold text-purple-400">12→4 мин</div>
-      <div className="text-sm text-muted-foreground mt-1">время реакции на сбои</div>
-    </div>
+<CaseMetrics 
+  metrics={[
+    { label: "OEE за 3 месяца", value: "68% → 81%", color: "text-green-400" },
+    { label: "подключено", value: "10 станков", color: "text-blue-400" },
+    { label: "время реакции на сбои", value: "12→4 мин", color: "text-purple-400" }
+  ]} 
+/>
+
+## 🎯 Задача
+
+Завод металлообработки (10 станков ЧПУ) хотел повысить эффективность, снизить простои и получить прозрачность по OEE в реальном времени.
+
+<div className="grid gap-4 sm:grid-cols-3 my-6">
+  <div className="p-4 rounded-lg border-2 border-red-500/30 bg-red-500/5">
+    <div className="font-semibold text-red-400">Проблема 1</div>
+    <div className="text-sm text-muted-foreground mt-1">Нет видимости простоев и причин</div>
+  </div>
+  <div className="p-4 rounded-lg border-2 border-orange-500/30 bg-orange-500/5">
+    <div className="font-semibold text-orange-400">Проблема 2</div>
+    <div className="text-sm text-muted-foreground mt-1">Ручной учёт → неточность</div>
+  </div>
+  <div className="p-4 rounded-lg border-2 border-yellow-500/30 bg-yellow-500/5">
+    <div className="font-semibold text-yellow-400">Проблема 3</div>
+    <div className="text-sm text-muted-foreground mt-1">Медленная реакция на сбои</div>
   </div>
 </div>
 
-## 🎯 Задача
-Завод металлообработки (10 станков ЧПУ) хотел повысить эффективность, снизить простои и получить прозрачность по OEE в реальном времени.
-
-**Проблемы:**
-- Нет видимости простоев и причин
-- Ручной учёт времени цикла → неточность
-- Невозможность быстро реагировать на сбои
+<SectionDivider />
 
 ## 🛠 Решение
 
 ### Технологический стек
-- **Протоколы**: OPC UA (3 станка Siemens), Modbus TCP (7 станков legacy)
-- **Шлюз**: Node-RED + MQTT-брокер (Mosquitto)
-- **БД**: PostgreSQL + TimescaleDB (ретеншн 2 года)
-- **Панели**: Grafana + custom React-дашборды
-- **Алерты**: Telegram Bot API
-- **Интеграции**: REST API для ERP-выгрузки
+
+<div className="grid gap-4 sm:grid-cols-2 my-6">
+  <div className="p-5 rounded-xl border-2 border-green-500/20 bg-gradient-to-br from-green-500/5 to-transparent">
+    <div className="font-semibold text-green-400">Протоколы</div>
+    <div className="text-sm text-muted-foreground mt-2">OPC UA (3 станка Siemens), Modbus TCP (7 станков legacy)</div>
+  </div>
+  <div className="p-5 rounded-xl border-2 border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-transparent">
+    <div className="font-semibold text-blue-400">Шлюз</div>
+    <div className="text-sm text-muted-foreground mt-2">Node-RED + MQTT-брокер (Mosquitto)</div>
+  </div>
+  <div className="p-5 rounded-xl border-2 border-purple-500/20 bg-gradient-to-br from-purple-500/5 to-transparent">
+    <div className="font-semibold text-purple-400">БД</div>
+    <div className="text-sm text-muted-foreground mt-2">PostgreSQL + TimescaleDB (ретеншн 2 года)</div>
+  </div>
+  <div className="p-5 rounded-xl border-2 border-pink-500/20 bg-gradient-to-br from-pink-500/5 to-transparent">
+    <div className="font-semibold text-pink-400">Панели</div>
+    <div className="text-sm text-muted-foreground mt-2">Grafana + custom React-дашборды</div>
+  </div>
+</div>
 
 ### Архитектура
-1. Станки → OPC UA/Modbus → Шлюз → MQTT
-2. MQTT → TimescaleDB (хранение телеметрии)
-3. Grafana + Custom UI → панели по ролям
-4. Алерты → Telegram при простоях > 5 мин
+
+1. **Станки** → OPC UA/Modbus → **Шлюз** → MQTT
+2. MQTT → **TimescaleDB** (хранение телеметрии)
+3. **Grafana + Custom UI** → панели по ролям (оператор/мастер/директор)
+4. **Алерты** → Telegram при простоях > 5 мин
 
 ### Что собирали
-- Статусы: работа/простой/авария/обслуживание
-- Телеметрия: температура, обороты, ток
-- Счётчики: циклы, детали, брак
-- Время: начало/конец цикла, простои
+
+- **Статусы**: работа/простой/авария/обслуживание
+- **Телеметрия**: температура, обороты, ток
+- **Счётчики**: циклы, детали, брак
+- **Время**: начало/конец цикла, простои
+
+<SectionDivider />
 
 ## 📊 Результат
 
 ### Метрики
-- **OEE**: 68% → 81% (+13 п.п.) за 3 месяца
-- **Доступность**: 82% → 92% (+10 п.п., снижение незапланированных простоев)
-- **Производительность**: 91% → 95% (оптимизация режимов)
-- **Качество**: 91% → 93% (раннее выявление дефектов)
+
+<div className="grid gap-4 sm:grid-cols-2 my-6">
+  <div className="p-4 rounded-lg border-2 border-green-500/30 bg-green-500/5">
+    <div className="text-2xl font-bold text-green-400">68% → 81%</div>
+    <div className="text-sm text-muted-foreground mt-1">OEE за 3 месяца (+13 п.п.)</div>
+  </div>
+  <div className="p-4 rounded-lg border-2 border-blue-500/30 bg-blue-500/5">
+    <div className="text-2xl font-bold text-blue-400">82% → 92%</div>
+    <div className="text-sm text-muted-foreground mt-1">Доступность (+10 п.п.)</div>
+  </div>
+  <div className="p-4 rounded-lg border-2 border-purple-500/30 bg-purple-500/5">
+    <div className="text-2xl font-bold text-purple-400">91% → 95%</div>
+    <div className="text-sm text-muted-foreground mt-1">Производительность</div>
+  </div>
+  <div className="p-4 rounded-lg border-2 border-pink-500/30 bg-pink-500/5">
+    <div className="text-2xl font-bold text-pink-400">91% → 93%</div>
+    <div className="text-sm text-muted-foreground mt-1">Качество</div>
+  </div>
+</div>
 
 ### Эффект
-- Время реакции на сбои: 12 мин → 4 мин
-- Выявлено 3 «узких места» → снижение брак на 5%
-- Прозрачность: директор видит OEE в приложении 24/7
-- ROI: окупилось за 8 месяцев (рост выпуска + снижение брака)
 
-### Отзыв клиента
-> «Панели дали полную видимость производства. Теперь оперативно реагируем на простои и планируем ремонты. За 3 месяца OEE вырос на 13%, планируем масштабировать на остальные цеха.»  
-> — Елена М., технический директор
+- ✅ Время реакции на сбои: **12 мин → 4 мин**
+- ✅ Выявлено **3 «узких места»** → снижение брака на **5%**
+- ✅ Прозрачность: директор видит OEE в приложении **24/7**
+- ✅ **ROI**: окупилось за 8 месяцев (рост выпуска + снижение брака)
+
+### 💬 Отзыв клиента
+
+<div className="p-6 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/5 border-2 border-blue-500/20 italic my-6">
+«Панели дали полную видимость производства. Теперь оперативно реагируем на простои и планируем ремонты. За 3 месяца OEE вырос на 13%, планируем масштабировать на остальные цеха.»  
+
+— **Елена М.**, технический директор
+</div>
+
+<SectionDivider />
 
 ## 🔗 Технологии
-`OPC UA` · `Modbus TCP` · `MQTT` · `TimescaleDB` · `Grafana` · `Node-RED` · `Telegram API`
 
----
+<div className="flex flex-wrap gap-2 my-6">
+  <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs border border-green-500/30">OPC UA</span>
+  <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs border border-blue-500/30">Modbus TCP</span>
+  <span className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs border border-purple-500/30">MQTT</span>
+  <span className="px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 text-xs border border-pink-500/30">TimescaleDB</span>
+  <span className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs border border-cyan-500/30">Grafana</span>
+  <span className="px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs border border-orange-500/30">Node-RED</span>
+  <span className="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 text-xs border border-yellow-500/30">Telegram API</span>
+</div>
 
-**Хотите похожий результат?**  
-[Запросить демонстрацию](/brif) · [IIoT услуги](/uslugi/iiot) · [Все кейсы](/kejsy)
+<CallToAction href="/brif" text="Запросить демонстрацию" />
+
+<SectionDivider />
+
+**Связанные материалы:**  
+[IIoT услуги](/uslugi/iiot) · [Все кейсы](/kejsy) · [IIoT и OEE](/blog/iiot-oee) · [Бриф](/brif)
